@@ -16,6 +16,7 @@ using namespace std;
 void terminar(RedeSocial* redeSocial);
 void cadastrarPerfil(RedeSocial* redeSocial);
 void cadastrarDisciplina(RedeSocial* redeSocial);
+void logar(RedeSocial* redeSocial);
 
 void escolherOpcao(RedeSocial* redeSocial) {
     int input;
@@ -47,6 +48,7 @@ void escolherOpcao(RedeSocial* redeSocial) {
         cout << "=== Logar ===" << endl;
 
         //chama a funcao para fazer login
+        logar(redeSocial);
 
     } else if (input == 0) {
         cout << "=== Terminar ===" << endl;
@@ -183,6 +185,10 @@ void cadastrarDisciplina(RedeSocial* redeSocial) {
         }
     }
     escolherOpcao(redeSocial);
+}
+
+void logar(RedeSocial* redeSocial) {
+
 }
 
 void terminar(RedeSocial* redeSocial) {
