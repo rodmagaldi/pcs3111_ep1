@@ -19,7 +19,7 @@ class Disciplina : public Perfil
 
     protected:
         Professor* responsavel;
-        Disciplina* preRequisito;
+        Disciplina* preRequisito = NULL;
 
         bool adicionarSeguidor(Perfil* seguidor);
         bool receber(Publicacao* p);

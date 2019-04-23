@@ -23,6 +23,7 @@ void terminar(RedeSocial* redeSocial);
 void cadastrarPerfil(RedeSocial* redeSocial);
 void cadastrarDisciplina(RedeSocial* redeSocial);
 void logar(RedeSocial* redeSocial);
+void escolherAcao(RedeSocial* redeSocial, Perfil* perfil);
 
 void escolherOpcao(RedeSocial* redeSocial) {
     int input;
@@ -63,7 +64,9 @@ void escolherOpcao(RedeSocial* redeSocial) {
         terminar(redeSocial);
 
     } else {
-        cout << "Escolha umas das alternativas: 1, 2, 3 ou 0.";
+        cout << "Escolha umas das alternativas: 1, 2, 3 ou 0." << endl;
+        cout << endl;
+        escolherOpcao(redeSocial);
 
     }
 }
@@ -191,6 +194,7 @@ void cadastrarDisciplina(RedeSocial* redeSocial) {
 
 void logar(RedeSocial* redeSocial) {
     int nlogin;
+    Perfil* usuarioLogado;
 
     cout << "Escolha um perfil:" << endl;
     visualizarPerfis(redeSocial);
@@ -207,7 +211,54 @@ void logar(RedeSocial* redeSocial) {
         escolherOpcao(redeSocial);
     } else {
         nlogin--;
+        usuarioLogado = redeSocial->getPerfis()[nlogin];
+        escolherAcao(redeSocial, usuarioLogado);
+    }
+}
 
+void escolherAcao(RedeSocial* redeSocial, Perfil* perfil) {
+    int nopcao;
+
+    cout << perfil->getNumeroUSP() << " - " << perfil->getNome() << endl;
+
+    if (dynamic_cast<Professor*>(perfil)!= NULL) {
+        Professor* prof = dynamic_cast<Professor*>(perfil);
+        cout << "Departamento: " << prof->getDepartamento() << endl;
+    }
+
+    if (dynamic_cast<Disciplina*>(perfil)!= NULL) {
+        Disciplina* disc = dynamic_cast<Disciplina*>(perfil);
+        if (disc->getPreRequisito()!= NULL) {
+            cout << "Pre-Requisito: " << disc->getPreRequisito()->getNome() << endl;
+        } else {
+            cout << "Pre-Requisito: -" << endl;
+        }
+    }
+
+    cout << "Seguidores: " << perfil->getQuantidadeDeSeguidores() << endl;
+    cout << "---" << endl;
+    cout << "Escolha uma opcao:" << endl;
+    cout << "1) Ver publicacoes feitas" << endl;
+    cout << "2) Ver publicacoes recebidas" << endl;
+    cout << "3) Fazer publicacao" << endl;
+
+    if (dynamic_cast<Disciplina*>(perfil) == NULL) {
+        cout << "4) Seguir perfil" << endl;
+    }
+
+    cout << "0) Deslogar" << endl;
+    cout << endl;
+
+    cin >> nopcao;
+    cout << endl;
+
+    if (nopcao == 0) {
+        cout << "===== Usuario " << perfil->getNome() << " deslogado! =====" << endl;
+        cout << endl;
+        logar(redeSocial);
+    } else {
+        nopcao--;
+        cout << "IMPLEMENTAR ESCOLHAS!!!" << endl;
     }
 }
 

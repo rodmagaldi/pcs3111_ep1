@@ -22,11 +22,11 @@ Professor* Disciplina::getResponsavel() {
 }
 
 Disciplina* Disciplina::getPreRequisito() {
-    if (this->preRequisito != NULL) {
+    //if (this->preRequisito != NULL) {
         return this->preRequisito;
-    } else {
-        return NULL;
-    }
+    //} else {
+    //    return NULL;
+    //}
 }
 
 //void Disciplina::imprimir() {
