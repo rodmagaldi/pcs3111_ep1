@@ -1,0 +1,70 @@
+# depslib dependency file v1.0
+1555947419 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\disciplina.cpp
+	"Disciplina.h"
+	<string>
+
+1555947506 c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\disciplina.h
+	"Perfil.h"
+	"Professor.h"
+
+1555939424 c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\perfil.h
+	<iostream>
+	<string>
+	"Publicacao.h"
+	"RedeSocial.h"
+
+1555946100 c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\publicacao.h
+	"Perfil.h"
+	"RedeSocial.h"
+	<string>
+	<iostream>
+
+1555946995 c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\redesocial.h
+	"Perfil.h"
+
+1555981682 c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\professor.h
+	"Perfil.h"
+	<iostream>
+	<string>
+
+1555947544 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\evento.cpp
+	"Evento.h"
+
+1555947197 c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\evento.h
+	"Publicacao.h"
+
+1556018004 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\main.cpp
+	"RedeSocial.h"
+	"Perfil.h"
+	"Publicacao.h"
+	"Professor.h"
+	"Disciplina.h"
+	"Aluno.h"
+	<iostream>
+	<string>
+
+1555938113 c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\aluno.h
+	"Perfil.h"
+	<string>
+
+1555957893 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\publicacao.cpp
+	"Publicacao.h"
+	<iostream>
+	<string>
+
+1555981714 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\professor.cpp
+	"Professor.h"
+
+1555958222 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\redesocial.cpp
+	"RedeSocial.h"
+	"Perfil.h"
+	"Disciplina.h"
+	"Professor.h"
+	"Aluno.h"
+
+1555958468 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\perfil.cpp
+	"Perfil.h"
+	"Evento.h"
+	<iostream>
+	<string>
+
