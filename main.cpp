@@ -13,6 +13,12 @@
 
 using namespace std;
 
+void visualizarPerfis(RedeSocial* redeSocial) {
+    for (int i = 0; i < redeSocial->getQuantidadeDePerfis(); i++) {
+        cout << std::to_string(i+1) << ") " << redeSocial->getPerfis()[i]->getNome() << endl;
+    }
+}
+
 void terminar(RedeSocial* redeSocial);
 void cadastrarPerfil(RedeSocial* redeSocial);
 void cadastrarDisciplina(RedeSocial* redeSocial);
@@ -121,9 +127,7 @@ void cadastrarDisciplina(RedeSocial* redeSocial) {
     cout << endl;
 
     cout << "Responsavel: " << endl;
-    for (int i = 0; i < redeSocial->getQuantidadeDePerfis(); i++) {
-        cout << std::to_string(i+1) << ") " << redeSocial->getPerfis()[i]->getNome() << endl;
-    }
+    visualizarPerfis(redeSocial);
 
     cout << "Digite o numero ou 0 para cancelar: ";
     cin >> nresponsavel;
@@ -145,9 +149,7 @@ void cadastrarDisciplina(RedeSocial* redeSocial) {
             responsavel = dynamic_cast<Professor*>(redeSocial->getPerfis()[nresponsavel]);
 
             cout << "Pre-Requisito: " << endl;
-            for (int i = 0; i < redeSocial->getQuantidadeDePerfis(); i++) {
-                cout << std::to_string(i+1) << ") " << redeSocial->getPerfis()[i]->getNome() << endl;
-            }
+            visualizarPerfis(redeSocial);
 
             cout << "Digite o numero ou 0 para nenhum: ";
             cin >> npreRequisito;
@@ -188,7 +190,25 @@ void cadastrarDisciplina(RedeSocial* redeSocial) {
 }
 
 void logar(RedeSocial* redeSocial) {
+    int nlogin;
 
+    cout << "Escolha um perfil:" << endl;
+    visualizarPerfis(redeSocial);
+    cout << "Digite o numero ou 0 para cancelar" << endl;
+    cout << endl;
+
+    cin >> nlogin;
+    cout << endl;
+
+    if (nlogin == 0) {
+        cout << "===== Login cancelado =====" << endl;
+        cout << endl;
+
+        escolherOpcao(redeSocial);
+    } else {
+        nlogin--;
+
+    }
 }
 
 void terminar(RedeSocial* redeSocial) {
