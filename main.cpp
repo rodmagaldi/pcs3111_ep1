@@ -24,6 +24,8 @@ void cadastrarPerfil(RedeSocial* redeSocial);
 void cadastrarDisciplina(RedeSocial* redeSocial);
 void logar(RedeSocial* redeSocial);
 void escolherAcao(RedeSocial* redeSocial, Perfil* perfil);
+void verPublicacoesFeitas(RedeSocial* redeSocial, Perfil* perfil);
+void verPublicacoesRecebidas(RedeSocial* redeSocial, Perfil* perfil);
 
 void escolherOpcao(RedeSocial* redeSocial) {
     int input;
@@ -198,9 +200,8 @@ void logar(RedeSocial* redeSocial) {
 
     cout << "Escolha um perfil:" << endl;
     visualizarPerfis(redeSocial);
-    cout << "Digite o numero ou 0 para cancelar" << endl;
-    cout << endl;
 
+    cout << "Digite o numero ou 0 para cancelar: ";
     cin >> nlogin;
     cout << endl;
 
@@ -256,9 +257,42 @@ void escolherAcao(RedeSocial* redeSocial, Perfil* perfil) {
         cout << "===== Usuario " << perfil->getNome() << " deslogado! =====" << endl;
         cout << endl;
         logar(redeSocial);
+    } else if (nopcao == 1) {
+        verPublicacoesFeitas(redeSocial, perfil);
+        escolherAcao(redeSocial, perfil);
+    } else if (nopcao == 2) {
+        verPublicacoesRecebidas(redeSocial, perfil);
+    }
+
+}
+
+void verPublicacoesFeitas(RedeSocial* redeSocial, Perfil* perfil) {
+    cout << "Publicacoes feitas: " << endl;
+    for (int i = 0; i < perfil->getQuantidadeDePublicacoesFeitas(); i++) {
+        cout << std::to_string(i+1) << ") " << perfil->getPublicacoesFeitas()[i]->getTexto() << " (" << perfil->getNome() << ") [" << perfil->getPublicacoesFeitas()[i]->getCurtidas() << " curtidas]" << endl;
+    }
+    cout << endl;
+}
+
+void verPublicacoesRecebidas(RedeSocial* redeSocial, Perfil* perfil) {
+    int npub;
+
+    cout << "Publicacoes recebidas: " << endl;
+    for (int i = 0; i < perfil->getQuantidadeDePublicacoesRecebidas(); i++) {
+        cout << std::to_string(i+1) << ") " << perfil->getPublicacoesRecebidas()[i]->getTexto() << " (" << perfil->getPublicacoesRecebidas()[i]->getAutor()->getNome() << ") [" << perfil->getPublicacoesRecebidas()[i]->getCurtidas() << " curtidas]" << endl;
+    }
+
+    cout << endl;
+    cout << "Digite o numero da mensagem para curtir ou 0 para voltar: ";
+    cin >> npub;
+    cout << endl;
+
+    if (npub == 0) {
+        escolherAcao(redeSocial, perfil);
     } else {
-        nopcao--;
-        cout << "IMPLEMENTAR ESCOLHAS!!!" << endl;
+        npub--;
+        perfil->getPublicacoesRecebidas()[npub]->curtir(perfil);
+        verPublicacoesRecebidas(redeSocial, perfil);
     }
 }
 
