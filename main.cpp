@@ -27,6 +27,7 @@ void escolherAcao(RedeSocial* redeSocial, Perfil* perfil);
 void verPublicacoesFeitas(RedeSocial* redeSocial, Perfil* perfil);
 void verPublicacoesRecebidas(RedeSocial* redeSocial, Perfil* perfil);
 void criarPublicacao(RedeSocial* redeSocial, Perfil* perfil);
+void seguirPerfil(RedeSocial* redeSocial, Perfil* perfil);
 
 void escolherOpcao(RedeSocial* redeSocial) {
     int input;
@@ -265,6 +266,8 @@ void escolherAcao(RedeSocial* redeSocial, Perfil* perfil) {
         verPublicacoesRecebidas(redeSocial, perfil);
     } else if (nopcao == 3) {
         criarPublicacao(redeSocial, perfil);
+    } else if (nopcao == 4) {
+        seguirPerfil(redeSocial, perfil);
     }
 
 }
@@ -326,6 +329,28 @@ void criarPublicacao(RedeSocial* redeSocial, Perfil* perfil) {
         perfil->publicar(msg, dataEvento);
     } else if (evento == "n") {
         perfil->publicar(msg);
+    }
+
+    escolherAcao(redeSocial, perfil);
+}
+
+void seguirPerfil(RedeSocial* redeSocial, Perfil* perfil) {
+    int nperfil;
+
+    cout << "Perfil:" << endl;
+    visualizarPerfis(redeSocial);
+    cout << endl;
+    cout << "Digite o numero ou 0 para cancelar: ";
+    cin >> nperfil;
+    cout << endl;
+
+    if (nperfil == 0) {
+        cout << "===== Acao de seguir cancelada =====" << endl;
+        cout << endl;
+
+    } else {
+        nperfil--;
+        redeSocial->getPerfis()[nperfil]->adicionarSeguidor(perfil);
     }
 
     escolherAcao(redeSocial, perfil);
