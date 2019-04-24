@@ -26,6 +26,7 @@ void logar(RedeSocial* redeSocial);
 void escolherAcao(RedeSocial* redeSocial, Perfil* perfil);
 void verPublicacoesFeitas(RedeSocial* redeSocial, Perfil* perfil);
 void verPublicacoesRecebidas(RedeSocial* redeSocial, Perfil* perfil);
+void criarPublicacao(RedeSocial* redeSocial, Perfil* perfil);
 
 void escolherOpcao(RedeSocial* redeSocial) {
     int input;
@@ -262,6 +263,8 @@ void escolherAcao(RedeSocial* redeSocial, Perfil* perfil) {
         escolherAcao(redeSocial, perfil);
     } else if (nopcao == 2) {
         verPublicacoesRecebidas(redeSocial, perfil);
+    } else if (nopcao == 3) {
+        criarPublicacao(redeSocial, perfil);
     }
 
 }
@@ -294,6 +297,38 @@ void verPublicacoesRecebidas(RedeSocial* redeSocial, Perfil* perfil) {
         perfil->getPublicacoesRecebidas()[npub]->curtir(perfil);
         verPublicacoesRecebidas(redeSocial, perfil);
     }
+}
+
+void criarPublicacao(RedeSocial* redeSocial, Perfil* perfil) {
+    string evento;
+    string dataEvento;
+    string msg;
+
+    cout << "===== Criador de publicacao =====" << endl;
+    cout << endl;
+    cout << "Evento (s/n): ";
+    cin >> evento;
+    cout << endl;
+
+    if (evento == "s") {
+        cout << "Data: ";
+        cin.ignore(100, '\n');
+        getline(cin, dataEvento);
+        cout << endl;
+    }
+
+    cout << "Texto: ";
+    cin.ignore(1000, '\n');
+    getline(cin, msg);
+    cout << endl;
+
+    if (evento == "s") {
+        perfil->publicar(msg, dataEvento);
+    } else if (evento == "n") {
+        perfil->publicar(msg);
+    }
+
+    escolherAcao(redeSocial, perfil);
 }
 
 void terminar(RedeSocial* redeSocial) {
