@@ -312,16 +312,15 @@ void criarPublicacao(RedeSocial* redeSocial, Perfil* perfil) {
     cout << "Evento (s/n): ";
     cin >> evento;
     cout << endl;
+    cin.ignore(1000, '\n');
 
     if (evento == "s") {
         cout << "Data: ";
-        cin.ignore(100, '\n');
         getline(cin, dataEvento);
         cout << endl;
     }
 
     cout << "Texto: ";
-    cin.ignore(1000, '\n');
     getline(cin, msg);
     cout << endl;
 
