@@ -105,6 +105,7 @@ void cadastrarPerfil(RedeSocial* redeSocial) {
     if (prof == "n") {
         Perfil* perfilNovo = new Perfil(nusp, nome, email);
         redeSocial->adicionar(perfilNovo);
+        escolherOpcao(redeSocial);
     }
 
     else if (prof == "s") {
@@ -113,9 +114,14 @@ void cadastrarPerfil(RedeSocial* redeSocial) {
         cout << endl;
         Professor* perfilNovo = new Professor(nusp, nome, email, dept);
         redeSocial->adicionar(perfilNovo);
+        escolherOpcao(redeSocial);
     }
 
-    escolherOpcao(redeSocial);
+    else {
+        cout << "Faça uma escolha valida para professor: 's' ou 'n'." << endl;
+        cout << endl;
+        cadastrarPerfil(redeSocial);
+    }
 }
 
 void cadastrarDisciplina(RedeSocial* redeSocial) {
@@ -146,7 +152,8 @@ void cadastrarDisciplina(RedeSocial* redeSocial) {
 
         cout << "===== Criacao de disciplina cancelada! =====" << endl;
         cout << endl;
-    } else {
+        escolherOpcao(redeSocial);
+    } else if (nresponsavel > 0 && nresponsavel <= redeSocial->getQuantidadeDePerfis()) {
         //escolha de um responsavel
         nresponsavel--;
 
@@ -167,7 +174,8 @@ void cadastrarDisciplina(RedeSocial* redeSocial) {
 
                 Disciplina* perfilNovo = new Disciplina(nome, responsavel);
                 redeSocial->adicionar(perfilNovo);
-            } else {
+                escolherOpcao(redeSocial);
+            } else if (npreRequisito > 0 && npreRequisito <= redeSocial->getQuantidadeDePerfis()) {
                 //caso haja pre-requsito
                 npreRequisito--;
 
@@ -177,13 +185,20 @@ void cadastrarDisciplina(RedeSocial* redeSocial) {
                     preRequisito = dynamic_cast<Disciplina*>(redeSocial->getPerfis()[npreRequisito]);
                     Disciplina* perfilNovo = new Disciplina(nome, responsavel, preRequisito);
                     redeSocial->adicionar(perfilNovo);
+                    escolherOpcao(redeSocial);
+
                 } else {
                     //caso seja invalido
 
                     cout << "O Pre-Requisito deve ser uma disciplina!" << endl;
                     cout << endl;
+                    cadastrarDisciplina(redeSocial);
 
                 }
+            } else {
+                cout << "Escolha uma opcao valida." << endl;
+                cout << endl;
+                cadastrarDisciplina(redeSocial);
             }
 
         } else {
@@ -191,9 +206,13 @@ void cadastrarDisciplina(RedeSocial* redeSocial) {
 
             cout << "Somente professores podem ser responsaveis por disciplinas!" << endl;
             cout << endl;
+            cadastrarDisciplina(redeSocial);
         }
+    } else {
+        cout << "Escolha um numero valido." << endl;
+        cout << endl;
+        cadastrarDisciplina(redeSocial);
     }
-    escolherOpcao(redeSocial);
 }
 
 void logar(RedeSocial* redeSocial) {
@@ -212,10 +231,14 @@ void logar(RedeSocial* redeSocial) {
         cout << endl;
 
         escolherOpcao(redeSocial);
-    } else {
+    } else if (nlogin > 0 && nlogin <= redeSocial->getQuantidadeDePerfis()){
         nlogin--;
         usuarioLogado = redeSocial->getPerfis()[nlogin];
         escolherAcao(redeSocial, usuarioLogado);
+    } else {
+        cout << "Escolha uma opcao valida." << endl;
+        cout << endl;
+        logar(redeSocial);
     }
 }
 
@@ -266,8 +289,12 @@ void escolherAcao(RedeSocial* redeSocial, Perfil* perfil) {
         verPublicacoesRecebidas(redeSocial, perfil);
     } else if (nopcao == 3) {
         criarPublicacao(redeSocial, perfil);
-    } else if (nopcao == 4) {
+    } else if (nopcao == 4 && dynamic_cast<Disciplina*>(perfil) == NULL) {
         seguirPerfil(redeSocial, perfil);
+    } else {
+        cout << "Escolha uma opcao valida." << endl;
+        cout << endl;
+        escolherAcao(redeSocial, perfil);
     }
 
 }
@@ -295,9 +322,13 @@ void verPublicacoesRecebidas(RedeSocial* redeSocial, Perfil* perfil) {
 
     if (npub == 0) {
         escolherAcao(redeSocial, perfil);
-    } else {
+    } else if(npub > 0 && npub <= perfil->getQuantidadeDePublicacoesRecebidas()) {
         npub--;
         perfil->getPublicacoesRecebidas()[npub]->curtir(perfil);
+        verPublicacoesRecebidas(redeSocial, perfil);
+    } else {
+        cout << "Escolha uma opcao valida." << endl;
+        cout << endl;
         verPublicacoesRecebidas(redeSocial, perfil);
     }
 }
@@ -318,19 +349,26 @@ void criarPublicacao(RedeSocial* redeSocial, Perfil* perfil) {
         cout << "Data: ";
         getline(cin, dataEvento);
         cout << endl;
-    }
+        cout << "Texto: ";
+        getline(cin, msg);
+        cout << endl;
 
-    cout << "Texto: ";
-    getline(cin, msg);
-    cout << endl;
-
-    if (evento == "s") {
         perfil->publicar(msg, dataEvento);
-    } else if (evento == "n") {
-        perfil->publicar(msg);
-    }
+        escolherAcao(redeSocial, perfil);
 
-    escolherAcao(redeSocial, perfil);
+    } else if (evento == "n") {
+        cout << "Texto: ";
+        getline(cin, msg);
+        cout << endl;
+
+        perfil->publicar(msg);
+        escolherAcao(redeSocial, perfil);
+
+    } else {
+        cout << "Escolha uma opcao valida: 's' ou 'n'." << endl;
+        cout << endl;
+        criarPublicacao(redeSocial, perfil);
+    }
 }
 
 void seguirPerfil(RedeSocial* redeSocial, Perfil* perfil) {
@@ -346,13 +384,17 @@ void seguirPerfil(RedeSocial* redeSocial, Perfil* perfil) {
     if (nperfil == 0) {
         cout << "===== Acao de seguir cancelada =====" << endl;
         cout << endl;
+        escolherAcao(redeSocial, perfil);
 
-    } else {
+    } else if (nperfil > 0 && nperfil <= redeSocial->getQuantidadeDePerfis()){
         nperfil--;
         redeSocial->getPerfis()[nperfil]->adicionarSeguidor(perfil);
+        escolherAcao(redeSocial, perfil);
+    } else {
+        cout << "Escolha uma opcao valida." << endl;
+        cout  << endl;
+        seguirPerfil(redeSocial, perfil);
     }
-
-    escolherAcao(redeSocial, perfil);
 }
 
 void terminar(RedeSocial* redeSocial) {
