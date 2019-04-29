@@ -418,53 +418,5 @@ int main() {
 
     escolherOpcao(redeSocial);
 
-//  cout << endl << " ===== Cria Moodle" << endl;
-//  RedeSocial* moodle = new RedeSocial(100);
-//
-//  cout << endl << " ===== Cria perfil 1 - Prof. Marcelo" << endl;
-//  Professor* profMarcelo = new Professor(1, "Prof. Marcelo", "profmarcelo@pcs.usp.br", "PCS");
-//  profMarcelo->imprimir();
-//
-//  cout << " ===== Cria perfil 2 - Maria Santos" << endl;
-//  Perfil* mariaSantos = new Perfil(2, "Maria Santos", "maria.santos@usp.br");
-//  mariaSantos->imprimir();
-//
-//  cout << " ===== Cria perfil 3 - Carlos Costa" << endl;
-//  Perfil* carlosCosta = new Perfil(3, "Carlos Costa", "carlos.costa@usp.br");
-//  carlosCosta->imprimir();
-//
-//  cout << " ===== Cria perfil 4 - PCS3111" << endl;
-//  Disciplina* pcs3111 = new Disciplina("PCS3111", profMarcelo);
-//  pcs3111->imprimir();
-//
-//  moodle->adicionar(profMarcelo);
-//  moodle->adicionar(mariaSantos);
-//  moodle->adicionar(carlosCosta);
-//  moodle->adicionar(pcs3111);
-//
-//  cout << " ===== Maria Segue Prof. Marcelo" << endl;
-//  profMarcelo->adicionarSeguidor(mariaSantos);
-//
-//  cout << " ===== Carlos Segue Prof. Marcelo" << endl;
-//  profMarcelo->adicionarSeguidor(carlosCosta);
-////
-////  cout << " ===== Maria Segue PCS3110" << endl;
-////  pcs3110->adicionarSeguidor(mariaSantos);
-////
-////  cout << " ===== Maria Segue PCS3111" << endl;
-////  pcs3111->adicionarSeguidor(mariaSantos);
-//
-//  cout << " ===== Mensagens publicadas" << endl;
-//  profMarcelo->publicar("Mensagem 1");
-//  mariaSantos->publicar("Mensagem 2");
-//  carlosCosta->publicar("Mensagem 3");
-//  pcs3111->publicar("Mensagem 4");
-//
-////  moodle->imprimirEstatisticas();
-//
-//  moodle->imprimir();
-//
-//  delete moodle;
-
   return 0;
 }
