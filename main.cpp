@@ -3,7 +3,7 @@
 #include "Publicacao.h"
 #include "Professor.h"
 #include "Disciplina.h"
-#include "Aluno.h"
+#include "Evento.h"
 
 #include <iostream>
 #include <string>
@@ -302,7 +302,15 @@ void escolherAcao(RedeSocial* redeSocial, Perfil* perfil) {
 void verPublicacoesFeitas(RedeSocial* redeSocial, Perfil* perfil) {
     cout << "Publicacoes feitas: " << endl;
     for (int i = 0; i < perfil->getQuantidadeDePublicacoesFeitas(); i++) {
-        cout << std::to_string(i+1) << ") " << perfil->getPublicacoesFeitas()[i]->getTexto() << " (" << perfil->getNome() << ") [" << perfil->getPublicacoesFeitas()[i]->getCurtidas() << " curtidas]" << endl;
+
+        Publicacao* pub = perfil->getPublicacoesFeitas()[i];
+
+        if (dynamic_cast<Evento*>(pub)){
+            Evento* ev = dynamic_cast<Evento*>(pub);
+            cout << std::to_string(i+1) << ") EVENTO - " << ev->getData() << " - " << ev->getTexto() << " (" << perfil->getNome() << ") [" << ev->getCurtidas() << " curtidas]" << endl;
+        } else {
+            cout << std::to_string(i+1) << ") "<< pub->getTexto() << " (" << perfil->getNome() << ") [" << pub->getCurtidas() << " curtidas]" << endl;
+        }
     }
     cout << endl;
 }
@@ -312,7 +320,15 @@ void verPublicacoesRecebidas(RedeSocial* redeSocial, Perfil* perfil) {
 
     cout << "Publicacoes recebidas: " << endl;
     for (int i = 0; i < perfil->getQuantidadeDePublicacoesRecebidas(); i++) {
-        cout << std::to_string(i+1) << ") " << perfil->getPublicacoesRecebidas()[i]->getTexto() << " (" << perfil->getPublicacoesRecebidas()[i]->getAutor()->getNome() << ") [" << perfil->getPublicacoesRecebidas()[i]->getCurtidas() << " curtidas]" << endl;
+
+        Publicacao* pub = perfil->getPublicacoesRecebidas()[i];
+
+        if (dynamic_cast<Evento*>(pub)) {
+            Evento* ev = dynamic_cast<Evento*>(pub);
+            cout << std::to_string(i+1) << ") EVENTO - " << ev->getData() << " - " << ev->getTexto() << " (" << ev->getAutor()->getNome() << ") [" << ev->getCurtidas() << " curtidas]" << endl;
+        } else {
+            cout << std::to_string(i+1) << ") " << pub->getTexto() << " (" << pub->getAutor()->getNome() << ") [" << pub->getCurtidas() << " curtidas]" << endl;
+        }
     }
 
     cout << endl;
