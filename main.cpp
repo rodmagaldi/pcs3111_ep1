@@ -14,6 +14,10 @@
 using namespace std;
 
 void visualizarPerfis(RedeSocial* redeSocial) {
+    //Funcao que permite visualizar todos os perfis
+    //da rede social com uma formatacao visualmente
+    //agradavel, dentro dos limites de escopo do projeto
+
     for (int i = 0; i < redeSocial->getQuantidadeDePerfis(); i++) {
         cout << std::to_string(i+1) << ") " << redeSocial->getPerfis()[i]->getNome() << endl;
     }
@@ -30,6 +34,10 @@ void criarPublicacao(RedeSocial* redeSocial, Perfil* perfil);
 void seguirPerfil(RedeSocial* redeSocial, Perfil* perfil);
 
 void escolherOpcao(RedeSocial* redeSocial) {
+    //Funcao que permite fazer a escolha de uma opcao
+    //na inicializacao da rede social: cadastrar perfis,
+    //fazer login ou terminar  o programa
+
     int input;
     cout << "Escolha uma opcao: " << endl;
     cout << endl;
@@ -76,6 +84,10 @@ void escolherOpcao(RedeSocial* redeSocial) {
 }
 
 void cadastrarPerfil(RedeSocial* redeSocial) {
+    //funcao que realiza o cadastro de novos perfis
+    //na rede social
+
+
     int nusp;
     string nome;
     string email;
@@ -125,6 +137,9 @@ void cadastrarPerfil(RedeSocial* redeSocial) {
 }
 
 void cadastrarDisciplina(RedeSocial* redeSocial) {
+    //funcao que realiza o cadastro de novas disciplinas
+    //na rede social
+
     string nome;
     int nresponsavel;
     Professor* responsavel = NULL;
@@ -216,6 +231,9 @@ void cadastrarDisciplina(RedeSocial* redeSocial) {
 }
 
 void logar(RedeSocial* redeSocial) {
+    //funcao que permite escolher um perfil para fazer login
+    //na rede social
+
     int nlogin;
     Perfil* usuarioLogado;
 
@@ -243,6 +261,9 @@ void logar(RedeSocial* redeSocial) {
 }
 
 void escolherAcao(RedeSocial* redeSocial, Perfil* perfil) {
+    //funcao que permite escolher a acao a ser tomada
+    //quando o usuario esta logado
+
     int nopcao;
 
     cout << perfil->getNumeroUSP() << " - " << perfil->getNome() << endl;
@@ -300,6 +321,10 @@ void escolherAcao(RedeSocial* redeSocial, Perfil* perfil) {
 }
 
 void verPublicacoesFeitas(RedeSocial* redeSocial, Perfil* perfil) {
+    //funcao que permite ver todas as publicacoes feitas
+    //pelo perfil que esta logado
+
+
     cout << "Publicacoes feitas: " << endl;
     for (int i = 0; i < perfil->getQuantidadeDePublicacoesFeitas(); i++) {
 
@@ -316,6 +341,9 @@ void verPublicacoesFeitas(RedeSocial* redeSocial, Perfil* perfil) {
 }
 
 void verPublicacoesRecebidas(RedeSocial* redeSocial, Perfil* perfil) {
+    //funcao que permite ver todas as publicacoes recebidas pelo
+    //perfil que esta logado, alem de permitir a curtida das publicacoes
+
     int npub;
 
     cout << "Publicacoes recebidas: " << endl;
@@ -350,6 +378,10 @@ void verPublicacoesRecebidas(RedeSocial* redeSocial, Perfil* perfil) {
 }
 
 void criarPublicacao(RedeSocial* redeSocial, Perfil* perfil) {
+    //funcao usada para a criacao de uma publicacao
+    //a partir do perfil logado
+
+
     string evento;
     string dataEvento;
     string msg;
@@ -388,6 +420,10 @@ void criarPublicacao(RedeSocial* redeSocial, Perfil* perfil) {
 }
 
 void seguirPerfil(RedeSocial* redeSocial, Perfil* perfil) {
+    //funcao chamada sob a opcao `seguir perfil` do usuario logado.
+    //permite seguir algum outro perfil que nao o seu proprio
+
+
     int nperfil;
 
     cout << "Perfil:" << endl;
@@ -414,6 +450,9 @@ void seguirPerfil(RedeSocial* redeSocial, Perfil* perfil) {
 }
 
 void terminar(RedeSocial* redeSocial) {
+    //funcao que termina todo o processo. Pode ser chamada
+    //apenas quando nao ha usuarios logados
+
     delete redeSocial;
 }
 
