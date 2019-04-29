@@ -33,13 +33,13 @@
 1555947197 c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\evento.h
 	"Publicacao.h"
 
-1556127472 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\main.cpp
+1556537487 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\main.cpp
 	"RedeSocial.h"
 	"Perfil.h"
 	"Publicacao.h"
 	"Professor.h"
 	"Disciplina.h"
-	"Aluno.h"
+	"Evento.h"
 	<iostream>
 	<string>
 

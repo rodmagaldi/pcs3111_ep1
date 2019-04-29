@@ -17,12 +17,14 @@ class Disciplina : public Perfil
         Disciplina* getPreRequisito();
 //        void imprimir();
 
+        bool receber(Publicacao* p);
+        bool adicionarSeguidor(Perfil* seguidor);
+
     protected:
         Professor* responsavel;
         Disciplina* preRequisito = NULL;
 
-        bool adicionarSeguidor(Perfil* seguidor);
-        bool receber(Publicacao* p);
+
 
     private:
 };

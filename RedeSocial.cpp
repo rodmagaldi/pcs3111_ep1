@@ -2,7 +2,6 @@
 #include "Perfil.h"
 #include "Disciplina.h"
 #include "Professor.h"
-#include "Aluno.h"
 
 RedeSocial::RedeSocial(int numeroMaximoDePerfis) {
     this->numeroMaximoDePerfis = numeroMaximoDePerfis;
