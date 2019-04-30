@@ -14,14 +14,6 @@ Publicacao::~Publicacao(){
     cout << "Destrutor de publicacao: " << this->texto << endl;
 }
 
-//void Publicacao::setTexto(string textoNovo) {
-//    this->texto = textoNovo;
-//}
-//
-//void Publicacao::setAutor(Perfil* autorNovo) {
-//    this->autor = autorNovo;
-//}
-
 Perfil* Publicacao::getAutor() {
     return this->autor;
 }

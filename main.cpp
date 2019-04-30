@@ -441,6 +441,12 @@ void seguirPerfil(RedeSocial* redeSocial, Perfil* perfil) {
     } else if (nperfil > 0 && nperfil <= redeSocial->getQuantidadeDePerfis()){
         nperfil--;
         redeSocial->getPerfis()[nperfil]->adicionarSeguidor(perfil);
+
+        if (redeSocial->getPerfis()[nperfil] == perfil) {
+            cout << "Voce nao pode seguir a si mesmo!" << endl;
+            cout << endl;
+        }
+
         escolherAcao(redeSocial, perfil);
     } else {
         cout << "Escolha uma opcao valida." << endl;

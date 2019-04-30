@@ -15,7 +15,6 @@ public:
   bool adicionar(Perfil* p);
   void imprimir ();
 
-//  void imprimirEstatisticas();
 private:
   Perfil** perfis;
   int quantidadeDePerfis = 0;

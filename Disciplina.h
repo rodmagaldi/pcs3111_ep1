@@ -15,7 +15,7 @@ class Disciplina : public Perfil
 
         Professor* getResponsavel();
         Disciplina* getPreRequisito();
-//        void imprimir();
+        void imprimir();
 
         bool receber(Publicacao* p);
         bool adicionarSeguidor(Perfil* seguidor);

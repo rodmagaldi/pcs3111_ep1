@@ -28,10 +28,6 @@ public:
     virtual void curtir(Perfil* quemCurtiu);
     virtual int getCurtidas();
 
-//    //setters
-//    void setTexto(string textoNovo);
-//    void setAutor(Perfil* autorNovo);
-
     virtual void imprimir();
 };
 

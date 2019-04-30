@@ -22,16 +22,12 @@ Professor* Disciplina::getResponsavel() {
 }
 
 Disciplina* Disciplina::getPreRequisito() {
-    //if (this->preRequisito != NULL) {
-        return this->preRequisito;
-    //} else {
-    //    return NULL;
-    //}
+    return this->preRequisito;
 }
 
-//void Disciplina::imprimir() {
-// cout << "Nome: " << nome << " - Responsavel: " << responsavel->getNome() << endl;
-//}
+void Disciplina::imprimir() {
+    cout << "Nome: " << nome << " - Responsavel: " << responsavel->getNome() << endl;
+}
 
 bool Disciplina::adicionarSeguidor(Perfil* seguidor) {
     //caso seja possivel adicionar seguidores
