@@ -332,7 +332,7 @@ void verPublicacoesFeitas(RedeSocial* redeSocial, Perfil* perfil) {
 
         if (dynamic_cast<Evento*>(pub)){
             Evento* ev = dynamic_cast<Evento*>(pub);
-            cout << std::to_string(i+1) << ") EVENTO - " << ev->getData() << " - " << ev->getTexto() << " (" << perfil->getNome() << ") [" << ev->getCurtidas() << " curtidas]" << endl;
+            cout << std::to_string(i+1) << ") " << ev->getData() << " - " << ev->getTexto() << " (" << perfil->getNome() << ") [" << ev->getCurtidas() << " curtidas]" << endl;
         } else {
             cout << std::to_string(i+1) << ") "<< pub->getTexto() << " (" << perfil->getNome() << ") [" << pub->getCurtidas() << " curtidas]" << endl;
         }
@@ -353,7 +353,7 @@ void verPublicacoesRecebidas(RedeSocial* redeSocial, Perfil* perfil) {
 
         if (dynamic_cast<Evento*>(pub)) {
             Evento* ev = dynamic_cast<Evento*>(pub);
-            cout << std::to_string(i+1) << ") EVENTO - " << ev->getData() << " - " << ev->getTexto() << " (" << ev->getAutor()->getNome() << ") [" << ev->getCurtidas() << " curtidas]" << endl;
+            cout << std::to_string(i+1) << ") " << ev->getData() << " - " << ev->getTexto() << " (" << ev->getAutor()->getNome() << ") [" << ev->getCurtidas() << " curtidas]" << endl;
         } else {
             cout << std::to_string(i+1) << ") " << pub->getTexto() << " (" << pub->getAutor()->getNome() << ") [" << pub->getCurtidas() << " curtidas]" << endl;
         }

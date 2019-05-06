@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1556050718 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\disciplina.cpp
+1556663538 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\disciplina.cpp
 	"Disciplina.h"
 	<string>
 
-1556050931 c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\disciplina.h
+1556663544 c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\disciplina.h
 	"Perfil.h"
 	"Professor.h"
 
@@ -47,7 +47,7 @@
 	"Perfil.h"
 	<string>
 
-1555957893 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\publicacao.cpp
+1556663620 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\publicacao.cpp
 	"Publicacao.h"
 	<iostream>
 	<string>
@@ -55,12 +55,11 @@
 1555981714 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\professor.cpp
 	"Professor.h"
 
-1555958222 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\redesocial.cpp
+1556663611 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\redesocial.cpp
 	"RedeSocial.h"
 	"Perfil.h"
 	"Disciplina.h"
 	"Professor.h"
-	"Aluno.h"
 
 1555958468 source:c:\users\rodrigo magaldi\desktop\coisas da poli\pcs 3111\ep1\perfil.cpp
 	"Perfil.h"
